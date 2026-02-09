@@ -1,3 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+/* Tell Tailwind where to find your classes (optional with Vite plugin – it auto-detects) */
+@source "../index.html";
+@source "./**/*.jsx";
+@source "./**/*.js";
+
+body {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
