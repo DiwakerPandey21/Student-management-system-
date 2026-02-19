@@ -89,10 +89,25 @@ const deleteStudent = asyncHandler(async (req, res) => {
     }
 });
 
+// @desc    Get current student profile
+// @route   GET /api/students/profile
+// @access  Private/Student
+const getStudentProfile = asyncHandler(async (req, res) => {
+    const student = await Student.findOne({ user: req.user._id });
+
+    if (student) {
+        res.json(student);
+    } else {
+        res.status(404);
+        throw new Error('Student profile not found');
+    }
+});
+
 module.exports = {
     getStudents,
     getStudentById,
     createStudent,
     updateStudent,
     deleteStudent,
+    getStudentProfile,
 };

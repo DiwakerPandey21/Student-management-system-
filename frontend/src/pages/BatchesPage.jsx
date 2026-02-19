@@ -89,7 +89,7 @@ const BatchesPage = () => {
                         <span className="absolute inset-y-0 left-0 flex items-center pl-3">
                             <FaSearch className="text-gray-400" />
                         </span>
-                        <input type="text" className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search batches..." />
+                        <input type="text" className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500" placeholder="Search batches..." />
                     </div>
                 </div>
 
@@ -117,7 +117,7 @@ const BatchesPage = () => {
                                         <td className="px-6 py-4">{batch.year}</td>
                                         <td className="px-6 py-4">{new Date(batch.startDate).toLocaleDateString()}</td>
                                         <td className="px-6 py-4 space-x-2">
-                                            <button className="text-blue-600 hover:text-blue-900"><FaEdit /></button>
+                                            <button className="text-brand-600 hover:text-brand-900"><FaEdit /></button>
                                             <button onClick={() => handleDelete(batch._id)} className="text-red-600 hover:text-red-900"><FaTrash /></button>
                                         </td>
                                     </tr>
@@ -140,11 +140,11 @@ const BatchesPage = () => {
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Batch Name</label>
-                                    <input required type="text" name="batchName" value={formData.batchName} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input required type="text" name="batchName" value={formData.batchName} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Course</label>
-                                    <select required name="course" value={formData.course} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                    <select required name="course" value={formData.course} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none">
                                         <option value="">Select Course</option>
                                         {courses.map(course => (
                                             <option key={course._id} value={course._id}>{course.courseName}</option>
@@ -153,15 +153,15 @@ const BatchesPage = () => {
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Year</label>
-                                    <input required type="number" name="year" value={formData.year} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input required type="number" name="year" value={formData.year} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Start Date</label>
-                                    <input required type="date" name="startDate" value={formData.startDate} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input required type="date" name="startDate" value={formData.startDate} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">End Date</label>
-                                    <input required type="date" name="endDate" value={formData.endDate} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input required type="date" name="endDate" value={formData.endDate} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div className="flex justify-end space-x-3 pt-2">
                                     <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg">Cancel</button>

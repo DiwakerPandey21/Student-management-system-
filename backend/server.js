@@ -22,6 +22,8 @@ const courseRoutes = require('./routes/courseRoutes');
 const batchRoutes = require('./routes/batchRoutes');
 const enrollmentRoutes = require('./routes/enrollmentRoutes');
 const statsRoutes = require('./routes/statsRoutes');
+const attendanceRoutes = require('./routes/attendanceRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
 app.use('/api/users', userRoutes);
@@ -30,6 +32,8 @@ app.use('/api/courses', courseRoutes);
 app.use('/api/batches', batchRoutes);
 app.use('/api/enroll', enrollmentRoutes);
 app.use('/api/stats', statsRoutes);
+app.use('/api/attendance', attendanceRoutes);
+app.use('/api/payments', paymentRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

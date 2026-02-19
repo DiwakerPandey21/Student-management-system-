@@ -51,7 +51,7 @@ const Login = () => {
                                 type="email"
                                 autoComplete="email"
                                 required
-                                className="w-full px-10 py-3 text-gray-300 bg-gray-700 border border-gray-600 rounded-t-md focus:ring-blue-500 focus:border-blue-500 sm:text-sm placeholder-gray-500"
+                                className="w-full px-10 py-3 text-gray-300 bg-gray-700 border border-gray-600 rounded-t-md focus:ring-brand-500 focus:border-brand-500 sm:text-sm placeholder-gray-500"
                                 placeholder="Email address"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -65,7 +65,7 @@ const Login = () => {
                                 type="password"
                                 autoComplete="current-password"
                                 required
-                                className="w-full px-10 py-3 text-gray-300 bg-gray-700 border border-gray-600 rounded-b-md focus:ring-blue-500 focus:border-blue-500 sm:text-sm placeholder-gray-500"
+                                className="w-full px-10 py-3 text-gray-300 bg-gray-700 border border-gray-600 rounded-b-md focus:ring-brand-500 focus:border-brand-500 sm:text-sm placeholder-gray-500"
                                 placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
@@ -76,7 +76,7 @@ const Login = () => {
                     <div>
                         <button
                             type="submit"
-                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors duration-200"
+                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-brand-600 hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-500 transition-colors duration-200"
                         >
                             Sign in
                         </button>

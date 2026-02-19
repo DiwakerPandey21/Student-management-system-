@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { FaHome, FaUserGraduate, FaBook, FaChalkboard, FaSignOutAlt, FaLayerGroup } from 'react-icons/fa';
+import { FaHome, FaUserGraduate, FaBook, FaChalkboard, FaSignOutAlt, FaLayerGroup, FaIdCard, FaMoneyBillWave } from 'react-icons/fa';
 import { useContext } from 'react';
 import AuthContext from '../context/AuthContext';
 
@@ -12,14 +12,22 @@ const Sidebar = ({ open, setOpen }) => {
         { path: '/admin/students', name: 'Students', icon: <FaUserGraduate /> },
         { path: '/admin/courses', name: 'Courses', icon: <FaBook /> },
         { path: '/admin/batches', name: 'Batches', icon: <FaLayerGroup /> },
+        { path: '/admin/id-cards', name: 'ID Cards', icon: <FaIdCard /> },
+        { path: '/admin/attendance', name: 'Attendance', icon: <FaChalkboard /> },
+        { path: '/admin/payments', name: 'Payments', icon: <FaMoneyBillWave /> },
     ];
 
     return (
-        <div className={`fixed inset-y-0 left-0 bg-gray-900 text-white w-64 transform ${open ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-30 shadow-xl`}>
-            <div className="flex items-center justify-center h-16 border-b border-gray-800">
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                    EduManager
-                </h1>
+        <div className={`fixed inset-y-0 left-0 bg-gray-900 text-white w-64 transform ${open ? 'translate-x-0' : '-translate-x-full'} md:relative md:translate-x-0 transition-transform duration-300 ease-in-out z-50 shadow-xl`}>
+            <div className="flex items-center h-16 border-b border-gray-800 px-6">
+                <div className="flex items-center gap-3">
+                    <div className="w-8 h-8 rounded-lg bg-brand-600 flex items-center justify-center shadow-lg shadow-brand-500/30 flex-shrink-0">
+                        <span className="text-white font-bold text-lg">E</span>
+                    </div>
+                    <h1 className="text-xl font-bold text-white tracking-wide whitespace-nowrap">
+                        EduOne
+                    </h1>
+                </div>
             </div>
 
             <nav className="mt-8 px-4 space-y-2">
@@ -28,8 +36,8 @@ const Sidebar = ({ open, setOpen }) => {
                         key={item.path}
                         to={item.path}
                         className={`flex items-center px-4 py-3 rounded-lg transition-all duration-200 ${location.pathname === item.path
-                                ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/30'
-                                : 'text-gray-400 hover:bg-gray-800 hover:text-white'
+                            ? 'bg-brand-600 text-white shadow-lg shadow-brand-500/30'
+                            : 'text-gray-400 hover:bg-gray-800 hover:text-white'
                             }`}
                     >
                         <span className="text-lg mr-3">{item.icon}</span>

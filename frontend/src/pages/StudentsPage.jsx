@@ -1,9 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import AuthContext from '../context/AuthContext';
-import { FaPlus, FaSearch, FaEdit, FaTrash, FaUserGraduate } from 'react-icons/fa';
+import { FaPlus, FaSearch, FaEdit, FaTrash, FaUserGraduate, FaMoneyBillWave } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const StudentsPage = () => {
+    const navigate = useNavigate();
     const [students, setStudents] = useState([]);
     const [loading, setLoading] = useState(true);
     const [showModal, setShowModal] = useState(false);
@@ -104,11 +106,11 @@ const StudentsPage = () => {
         <div className="space-y-6">
             <div className="flex justify-between items-center">
                 <h2 className="text-2xl font-bold text-gray-800 flex items-center">
-                    <FaUserGraduate className="mr-2 text-blue-600" /> Student Management
+                    <FaUserGraduate className="mr-2 text-brand-600" /> Student Management
                 </h2>
                 <button
                     onClick={() => setShowModal(true)}
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg flex items-center transition shadow-md"
+                    className="bg-brand-600 hover:bg-brand-700 text-white px-4 py-2 rounded-lg flex items-center transition shadow-md"
                 >
                     <FaPlus className="mr-2" /> Add Student
                 </button>
@@ -123,7 +125,7 @@ const StudentsPage = () => {
                         </span>
                         <input
                             type="text"
-                            className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                            className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent"
                             placeholder="Search students..."
                         />
                     </div>
@@ -157,7 +159,8 @@ const StudentsPage = () => {
                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{student.email}</td>
                                         <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{student.phone}</td>
                                         <td className="px-6 py-4 whitespace-nowrap text-sm font-medium space-x-2">
-                                            <button className="text-blue-600 hover:text-blue-900"><FaEdit /></button>
+                                            <button onClick={() => navigate(`/admin/students/${student._id}/payments`)} className="text-green-600 hover:text-green-900" title="Payments"><FaMoneyBillWave /></button>
+                                            <button className="text-brand-600 hover:text-brand-900"><FaEdit /></button>
                                             <button onClick={() => handleDelete(student._id)} className="text-red-600 hover:text-red-900"><FaTrash /></button>
                                         </td>
                                     </tr>
@@ -180,27 +183,27 @@ const StudentsPage = () => {
                             <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-                                    <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input required type="text" name="name" value={formData.name} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                                    <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input required type="email" name="email" value={formData.email} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-                                    <input required type="password" name="password" value={formData.password} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input required type="password" name="password" value={formData.password} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Student ID</label>
-                                    <input required type="text" name="studentId" value={formData.studentId} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input required type="text" name="studentId" value={formData.studentId} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                                    <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input type="text" name="phone" value={formData.phone} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Gender</label>
-                                    <select name="gender" value={formData.gender} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none">
+                                    <select name="gender" value={formData.gender} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none">
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                         <option value="Other">Other</option>
@@ -208,16 +211,16 @@ const StudentsPage = () => {
                                 </div>
                                 <div>
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth</label>
-                                    <input type="date" name="dob" value={formData.dob} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" />
+                                    <input type="date" name="dob" value={formData.dob} onChange={handleChange} className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none" />
                                 </div>
                                 <div className="md:col-span-2">
                                     <label className="block text-sm font-medium text-gray-700 mb-1">Address</label>
-                                    <textarea name="address" value={formData.address} onChange={handleChange} rows="3" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"></textarea>
+                                    <textarea name="address" value={formData.address} onChange={handleChange} rows="3" className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-500 focus:outline-none"></textarea>
                                 </div>
 
                                 <div className="md:col-span-2 flex justify-end space-x-3 mt-4">
                                     <button type="button" onClick={() => setShowModal(false)} className="px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition">Cancel</button>
-                                    <button type="submit" className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition shadow">Save Student</button>
+                                    <button type="submit" className="px-4 py-2 bg-brand-600 text-white rounded-lg hover:bg-brand-700 transition shadow">Save Student</button>
                                 </div>
                             </form>
                         </div>
